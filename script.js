@@ -34,3 +34,29 @@ function playRound(playerSelection, computerSelection){
 	}
 	else return("error"); //enter rock,paper, or scissors only
 }
+
+function game(){
+	var P_winCount = 0;
+	var C_winCount = 0;
+	for(var i=0;i<5;i++){
+		var playerSelection = prompt("Rock, Paper or Scissors?");
+		var computerSelection = "scissors"//computerPlay();
+		var playerResult = playRound(playerSelection, computerSelection);
+		console.log("computer: " + computerSelection + "\t" + "Player: " + playerSelection);
+
+		if(playerResult === "win"){
+			P_winCount++;
+			console.log("You win this round!")
+		}
+		else if(playerResult === "lose"){
+			C_winCount++;
+			console.log("You lost this round :(");
+		}
+		else{
+			console.log("It's a draw");
+		}
+	}
+	if(P_winCount > C_winCount)console.log("You won the match");
+	else if(P_winCount < C_winCount) console.log("You lost the match");
+	else console.log("This match is a draw");
+}
