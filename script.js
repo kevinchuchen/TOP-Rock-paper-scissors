@@ -36,16 +36,29 @@ function playRound(playerSelection, computerSelection){
 }
 
 function startGame(e){
-	playerSelection = e.target.getAttribute('class').split(' ')[1]; //returns rock, paper or scissors
+	//playerSelection = e.target.getAttribute('class').split(' ')[1]; //returns rock, paper or scissors
 	computerSelection = computerPlay();
-	var results = playRound(playerSelection, computerSelection);
-
+	//var result = playRound(playerSelection, computerSelection);
+	console.log(e);
+	console.log(winCount);
+	//firstToFive(result);
+}
+function firstToFive(result){
 	var container = document.querySelector('.results');
-	container.textContent = `${results}`;
+	var winCount=0, lossCount=0;
+
+	if(result === "win"){
+		container.textContent = "Win!";
+		winCount++;
+	}
+	else if(result === "lose"){
+		container.textContent = "Try again!";
+		lossCount++;
+	}
 }
 
 var gameBtns = document.querySelectorAll('.gameBtn');
-
+var winCount =5;
 gameBtns.forEach((button) => {
 	button.addEventListener('click', startGame);
 });
