@@ -86,30 +86,37 @@ function firstToFive(result){
 	
 	//TODO: Add first to 5 win
 	if(winCount === 5){
-		resetGame();
+		modal.style.cssText = "display:flex;";
+		roundResult.textContent = "🎉 YOU WON!!! 🎉";
 	}
 	else if(lossCount === 5){
-		resetGame();
+		modal.style.cssText = "display:flex;";
+		roundResult.textContent = "💀 YOU LOST 💀";
+
 		
 	}
 	
 }
 function resetGame(){
+	console.log("GAME RESET");
 	winCount = 0;
 	lossCount = 0;
 	pScore.textContent = 0;
 	cScore.textContent = 0;
 	playerIcon.textContent = '?';
 	compIcon.textContent = '?';
-
+	modal.style.cssText = "display:none;";
 }
 
 var gameBtns = document.querySelectorAll('.gameBtn');
+var resetBtn = document.querySelector('.btn-tryAgain');
 var container = document.querySelector('.gameResults');
 var pScore = document.querySelector('.pScore');
 var cScore = document.querySelector('.cScore');
 var playerIcon = document.querySelector(".playerIcon");
 var compIcon = document.querySelector(".compIcon");
+var roundResult = document.querySelector(".roundResult");
+var modal = document.querySelector(".modal");
 var winCount =0;
 var lossCount=0;
 
@@ -117,4 +124,4 @@ gameBtns.forEach((button) => {
 	button.addEventListener('click', startGame);
 });
 
-
+resetBtn.addEventListener('click', resetGame);
