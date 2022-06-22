@@ -36,29 +36,83 @@ function playRound(playerSelection, computerSelection){
 }
 
 function startGame(e){
-	//playerSelection = e.target.getAttribute('class').split(' ')[1]; //returns rock, paper or scissors
+	playerSelection = e.target.getAttribute('class').split(' ')[1]; //returns rock, paper or scissors
 	computerSelection = computerPlay();
-	//var result = playRound(playerSelection, computerSelection);
-	console.log(e);
-	console.log(winCount);
-	//firstToFive(result);
+	var result = playRound(playerSelection, computerSelection);
+	displayIcons(playerSelection, computerSelection);
+	firstToFive(result);
 }
+
+
+function displayIcons(playerSelection, computerSelection){
+	
+	switch(playerSelection){
+		case 'rock':
+			playerIcon.textContent= "✊";
+			break;
+		case 'paper':
+			playerIcon.textContent= "✋";
+			break;
+		case 'scissors':
+			playerIcon.textContent= '✌';
+			break;
+	}
+	switch(computerSelection){
+		case 'rock':
+			compIcon.textContent= "✊";
+			break;
+		case 'paper':
+			compIcon.textContent= "✋";
+			break;
+		case 'scissors':
+			compIcon.textContent= '✌';
+			break;
+	}
+
+}
+
 function firstToFive(result){
-	var container = document.querySelector('.results');
-	var winCount=0, lossCount=0;
 
 	if(result === "win"){
 		container.textContent = "Win!";
-		winCount++;
+		pScore.textContent = ++winCount;
+		console.log(winCount);
 	}
 	else if(result === "lose"){
 		container.textContent = "Try again!";
-		lossCount++;
+		cScore.textContent = ++lossCount;
 	}
+	else container.textContent = "Draw";
+	
+	//TODO: Add first to 5 win
+	if(winCount === 5){
+		resetGame();
+	}
+	else if(lossCount === 5){
+		resetGame();
+		
+	}
+	
+}
+function resetGame(){
+	winCount = 0;
+	lossCount = 0;
+	pScore.textContent = 0;
+	cScore.textContent = 0;
+	playerIcon.textContent = '?';
+	compIcon.textContent = '?';
+
 }
 
 var gameBtns = document.querySelectorAll('.gameBtn');
-var winCount =5;
+var container = document.querySelector('.gameResults');
+var pScore = document.querySelector('.pScore');
+var cScore = document.querySelector('.cScore');
+var playerIcon = document.querySelector(".playerIcon");
+var compIcon = document.querySelector(".compIcon");
+var winCount =0;
+var lossCount=0;
+
 gameBtns.forEach((button) => {
 	button.addEventListener('click', startGame);
 });

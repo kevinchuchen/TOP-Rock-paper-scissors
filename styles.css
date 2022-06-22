@@ -1,0 +1,113 @@
+:root {
+    --darkBlue: #24305E;
+    --midBlue: #374785;
+    --skyBlue: #A8D0E6;
+    --red: #F76C6C;
+    --redActive: #ED8787;
+    --yellow: #F8E9A1;
+  }
+  body {
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--midBlue);
+      font-family: 'Alfa Slab One', cursive;
+      color: white;
+      margin:0;
+  }
+  .header, .content, .footer {
+      padding-left: 15rem;
+      padding-right:15rem;
+  }
+  .header {
+      text-align: center;
+      font-size: 3rem;
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
+      background-color: var(--darkBlue);
+  }
+  .content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+  }
+  .gameResults {
+      text-align: center;
+      font-size: 3rem;
+      height: 4rem;	
+  }
+  .gameIcons {
+      display: flex;
+      font-size: 13rem;
+      justify-content: space-around;
+      margin-bottom: 0.3rem;
+  }
+  .placeholder {
+      visibility: hidden;
+  
+  }
+  .scoreCard {
+      display:flex;
+      font-size: 4rem;
+      padding: 0 2.5rem;
+      justify-content: space-around;
+  
+  }
+  .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 6rem;
+      flex:1;
+      padding: 1rem;
+  }
+  .gameBtn {
+      width: 20rem;
+      font-size: 5rem;
+      text-align:center;
+      border-radius: 18px;
+      border: 5px solid black;
+      background-color: var(--skyBlue);
+      padding: 1rem;
+  }
+  .gameBtn:hover{
+      background-color: var(--red);
+  }
+  
+  .gameBtn:active{
+      background-color: var(--redActive);
+  }
+  
+  .playerIcon, .compIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 4px solid white;
+      border-radius: 18px;
+      height: 15rem;
+      width: 13rem;
+  }
+  .footer {
+      text-align: center;
+      padding: 0.6rem;
+      background-color: var(--darkBlue);
+      color: white;
+      margin: 0;
+  }
+  
+  .modal {
+      display: flex;
+      position: fixed;
+      justify-content: center;
+      align-items:center;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      left:0;
+      top:0;
+  }
+  
+  .modal-content {
+      background-color: var(--darkBlue);
+  }
