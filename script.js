@@ -76,7 +76,6 @@ function firstToFive(result){
 	if(result === "win"){
 		container.textContent = "Win!";
 		pScore.textContent = ++winCount;
-		console.log(winCount);
 	}
 	else if(result === "lose"){
 		container.textContent = "Try again!";
@@ -98,7 +97,6 @@ function firstToFive(result){
 	
 }
 function resetGame(){
-	console.log("GAME RESET");
 	winCount = 0;
 	lossCount = 0;
 	pScore.textContent = 0;
