@@ -6,7 +6,8 @@
     --redActive: #ED8787;
     --yellow: #F8E9A1;
     --darkGray: #151b35;
-  
+    --brightGreen: #21ce38;
+
   }
   body {
       display: flex;
